@@ -14,6 +14,7 @@
 		BEEC24791A7E026200810BD7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEC24781A7E026200810BD7 /* Images.xcassets */; };
 		BEEC247C1A7E026200810BD7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEEC247A1A7E026200810BD7 /* LaunchScreen.xib */; };
 		BEEC24881A7E026200810BD7 /* ExchangeAGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC24871A7E026200810BD7 /* ExchangeAGramTests.swift */; };
+		BEEC24931A7E046700810BD7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BEEC24911A7E046700810BD7 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		BEEC24811A7E026200810BD7 /* ExchangeAGramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeAGramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEC24861A7E026200810BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEC24871A7E026200810BD7 /* ExchangeAGramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAGramTests.swift; sourceTree = "<group>"; };
+		BEEC24911A7E046700810BD7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BEEC24921A7E046700810BD7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		BEEC24601A7E026200810BD7 = {
 			isa = PBXGroup;
 			children = (
+				BEEC24911A7E046700810BD7 /* LICENSE */,
+				BEEC24921A7E046700810BD7 /* README.md */,
 				BEEC246B1A7E026200810BD7 /* ExchangeAGram */,
 				BEEC24841A7E026200810BD7 /* ExchangeAGramTests */,
 				BEEC246A1A7E026200810BD7 /* Products */,
@@ -197,6 +202,7 @@
 			files = (
 				BEEC24771A7E026200810BD7 /* Main.storyboard in Resources */,
 				BEEC247C1A7E026200810BD7 /* LaunchScreen.xib in Resources */,
+				BEEC24931A7E046700810BD7 /* LICENSE in Resources */,
 				BEEC24791A7E026200810BD7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
