@@ -13,11 +13,16 @@ import CoreData
 class FeedViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
+  var feedArray:[AnyObject] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
+    let request = NSFetchRequest(entityName: "FeedItem")
+    let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+    let context = appDelegate.managedObjectContext!
+    feedArray = context.executeFetchRequest(request, error: nil)!
   }
   
   override func didReceiveMemoryWarning() {
@@ -74,11 +79,17 @@ extension FeedViewController: UICollectionViewDataSource {
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 1
+    return feedArray.count
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    return collectionView.dequeueReusableCellWithReuseIdentifier("feedCell", forIndexPath: indexPath) as FeedCell
+    var cell:FeedCell = collectionView.dequeueReusableCellWithReuseIdentifier("feedCell", forIndexPath: indexPath) as FeedCell
+    
+    let feedItem = feedArray[indexPath.row] as FeedItem
+    cell.imageView.image = UIImage(data: feedItem.image)
+    cell.captionLabel.text = feedItem.caption
+    
+    return cell
   }
 }
 
@@ -102,7 +113,11 @@ extension FeedViewController: UIImagePickerControllerDelegate {
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     
+    feedArray.append(feedItem)
+    
     self.dismissViewControllerAnimated(true, completion: nil)
+    
+    self.collectionView.reloadData()
   }
   
 }
