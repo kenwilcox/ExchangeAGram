@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE10CEFA1A80A7680088E59E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CEF91A80A7680088E59E /* FilterViewController.swift */; };
 		BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */; };
 		BE7FE1A11A7FB9F600793998 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FE1A01A7FB9F600793998 /* FeedItem.swift */; };
 		BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC246E1A7E026200810BD7 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE10CEF91A80A7680088E59E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		BE7FE1A01A7FB9F600793998 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		BEEC24691A7E026200810BD7 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 			children = (
 				BEEC246E1A7E026200810BD7 /* AppDelegate.swift */,
 				BEEC24951A7E05BD00810BD7 /* FeedViewController.swift */,
+				BE10CEF91A80A7680088E59E /* FilterViewController.swift */,
 				BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */,
 				BEEC24751A7E026200810BD7 /* Main.storyboard */,
 				BEEC24781A7E026200810BD7 /* Images.xcassets */,
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE10CEFA1A80A7680088E59E /* FilterViewController.swift in Sources */,
 				BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */,
 				BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */,
 				BEEC24961A7E05BD00810BD7 /* FeedViewController.swift in Sources */,
