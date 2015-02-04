@@ -92,8 +92,17 @@ extension FilterViewController: UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCell", forIndexPath: indexPath) as FilterCell
-    //cell.imageView.image = UIImage(named: "Placeholder")
-    cell.imageView.image = filteredImageFromImage(thisFeedItem.image, filter: filters[indexPath.row])
+    cell.imageView.image = UIImage(named: "Placeholder")
+    
+    let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
+    dispatch_async(filterQueue, { () -> Void in
+      let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+      
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        cell.imageView.image = filterImage
+      })
+      
+    })
     
     return cell
   }
