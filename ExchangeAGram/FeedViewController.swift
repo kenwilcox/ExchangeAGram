@@ -112,7 +112,7 @@ extension FeedViewController: UIImagePickerControllerDelegate {
     let imageData = UIImageJPEGRepresentation(image, 1.0)
     
     // really make a thumbnail
-    let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(150/image.size.width, 150/image.size.height))
+    let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(300.0/image.size.width, 300.0/image.size.height))
     let hasAlpha = false
     let scale: CGFloat = 0.0 // automatically use scale factor of the main screen
     UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
