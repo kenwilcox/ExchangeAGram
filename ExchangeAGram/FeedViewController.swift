@@ -110,12 +110,14 @@ extension FeedViewController: UIImagePickerControllerDelegate {
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
     let image = info[UIImagePickerControllerOriginalImage] as UIImage
     let imageData = UIImageJPEGRepresentation(image, 1.0)
+    let thumbnailData = UIImageJPEGRepresentation(image, 0.1)
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     let entityDescription = NSEntityDescription.entityForName("FeedItem", inManagedObjectContext: managedObjectContext!)
     
     let feedItem = FeedItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
     feedItem.image = imageData
+    feedItem.thumbnail = thumbnailData
     feedItem.caption = "test caption"
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
