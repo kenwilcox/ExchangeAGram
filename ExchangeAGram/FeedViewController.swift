@@ -110,7 +110,15 @@ extension FeedViewController: UIImagePickerControllerDelegate {
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
     let image = info[UIImagePickerControllerOriginalImage] as UIImage
     let imageData = UIImageJPEGRepresentation(image, 1.0)
-    let thumbnailData = UIImageJPEGRepresentation(image, 0.1)
+    
+    // really make a thumbnail
+    let size = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(150/image.size.width, 150/image.size.height))
+    let hasAlpha = false
+    let scale: CGFloat = 0.0 // automatically use scale factor of the main screen
+    UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+    image.drawInRect(CGRect(origin: CGPointZero, size: size))
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     let entityDescription = NSEntityDescription.entityForName("FeedItem", inManagedObjectContext: managedObjectContext!)
