@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		BE10CEFA1A80A7680088E59E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CEF91A80A7680088E59E /* FilterViewController.swift */; };
 		BE10CEFC1A80ACAC0088E59E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CEFB1A80ACAC0088E59E /* FilterCell.swift */; };
+		BE10CEFE1A81F6C40088E59E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CEFD1A81F6C40088E59E /* FeedItem.swift */; };
 		BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */; };
-		BE7FE1A11A7FB9F600793998 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FE1A01A7FB9F600793998 /* FeedItem.swift */; };
 		BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC246E1A7E026200810BD7 /* AppDelegate.swift */; };
 		BEEC24721A7E026200810BD7 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEEC24701A7E026200810BD7 /* ExchangeAGram.xcdatamodeld */; };
 		BEEC24771A7E026200810BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEC24751A7E026200810BD7 /* Main.storyboard */; };
@@ -34,8 +34,8 @@
 /* Begin PBXFileReference section */
 		BE10CEF91A80A7680088E59E /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		BE10CEFB1A80ACAC0088E59E /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		BE10CEFD1A81F6C40088E59E /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
-		BE7FE1A01A7FB9F600793998 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		BEEC24691A7E026200810BD7 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEC246D1A7E026200810BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEC246E1A7E026200810BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE10CEFF1A81F7130088E59E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE10CEFD1A81F6C40088E59E /* FeedItem.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BEEC24601A7E026200810BD7 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +100,7 @@
 		BEEC246B1A7E026200810BD7 /* ExchangeAGram */ = {
 			isa = PBXGroup;
 			children = (
+				BE10CEFF1A81F7130088E59E /* Model */,
 				BEEC246E1A7E026200810BD7 /* AppDelegate.swift */,
 				BEEC24951A7E05BD00810BD7 /* FeedViewController.swift */,
 				BE10CEF91A80A7680088E59E /* FilterViewController.swift */,
@@ -101,7 +110,6 @@
 				BEEC24781A7E026200810BD7 /* Images.xcassets */,
 				BEEC247A1A7E026200810BD7 /* LaunchScreen.xib */,
 				BEEC24701A7E026200810BD7 /* ExchangeAGram.xcdatamodeld */,
-				BE7FE1A01A7FB9F600793998 /* FeedItem.swift */,
 				BEEC246C1A7E026200810BD7 /* Supporting Files */,
 			);
 			path = ExchangeAGram;
@@ -237,8 +245,8 @@
 				BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */,
 				BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */,
 				BEEC24961A7E05BD00810BD7 /* FeedViewController.swift in Sources */,
-				BE7FE1A11A7FB9F600793998 /* FeedItem.swift in Sources */,
 				BEEC24721A7E026200810BD7 /* ExchangeAGram.xcdatamodeld in Sources */,
+				BE10CEFE1A81F6C40088E59E /* FeedItem.swift in Sources */,
 				BE10CEFC1A80ACAC0088E59E /* FilterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
