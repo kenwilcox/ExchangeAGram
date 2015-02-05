@@ -140,5 +140,23 @@ extension FilterViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension FilterViewController: UICollectionViewDelegate {
-  
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+    
+    let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+    self.thisFeedItem.image = imageData
+    
+    // really make a thumbnail
+    let size = CGSizeApplyAffineTransform(filterImage.size, CGAffineTransformMakeScale(300.0/filterImage.size.width, 300.0/filterImage.size.height))
+    let hasAlpha = false
+    let scale: CGFloat = 0.0 // automatically use scale factor of the main screen
+    UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+    filterImage.drawInRect(CGRect(origin: CGPointZero, size: size))
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
+    self.thisFeedItem.thumbnail = thumbnailData
+    
+    (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+    self.navigationController?.popViewControllerAnimated(true)
+  }
 }
