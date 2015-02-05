@@ -16,6 +16,7 @@ class FilterViewController: UIViewController {
   var context: CIContext = CIContext(options: nil)
   var filters: [CIFilter] = []
   let placeHolderImage = UIImage(named: "Placeholder")
+  let tmp = NSTemporaryDirectory()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -81,6 +82,32 @@ class FilterViewController: UIViewController {
     
     return finalImage!
   }
+  
+  // MARK: - Caching
+  func cacheImage(imageNumber: Int) {
+    let fileName = "\(imageNumber)"
+    let uniquePath = tmp.stringByAppendingPathComponent(fileName)
+    if !NSFileManager.defaultManager().fileExistsAtPath(uniquePath) {
+      let data = self.thisFeedItem.thumbnail
+      let filter = self.filters[imageNumber]
+      let image = filteredImageFromImage(data, filter: filter)
+      UIImageJPEGRepresentation(image, 1.0).writeToFile(uniquePath, atomically: true)
+    }
+  }
+  
+  func getCachedImage (imageNumber: Int) -> UIImage {
+    let fileName = "\(imageNumber)"
+    let uniquePath = tmp.stringByAppendingPathComponent(fileName)
+    var image:UIImage
+    
+    if NSFileManager.defaultManager().fileExistsAtPath(uniquePath) {
+      image = UIImage(contentsOfFile: uniquePath)!
+    } else {
+      self.cacheImage(imageNumber)
+      image = UIImage(contentsOfFile: uniquePath)!
+    }
+    return image
+  }
 }
 
 // MARK: - UICollectioniewDataSource
@@ -94,19 +121,19 @@ extension FilterViewController: UICollectionViewDataSource {
     
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCell", forIndexPath: indexPath) as FilterCell
     
-    if cell.imageView.image == nil {
-      cell.imageView.image = placeHolderImage
+    cell.imageView.image = placeHolderImage
+    cell.captionLabel.text = "\(indexPath.row)"
+    
+    let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
+    dispatch_async(filterQueue, { () -> Void in
+      let filterImage = self.getCachedImage(indexPath.row)
       
-      let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
-      dispatch_async(filterQueue, { () -> Void in
-        let filterImage = self.filteredImageFromImage(self.thisFeedItem.thumbnail, filter: self.filters[indexPath.row])
-        
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-          cell.imageView.image = filterImage
-        })
-        
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        cell.imageView.image = filterImage
       })
-    }
+      
+    })
+    
     return cell
   }
 }
