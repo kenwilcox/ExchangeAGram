@@ -83,6 +83,57 @@ class FilterViewController: UIViewController {
     return finalImage!
   }
   
+  // MARK: - Alert Views
+  func createUIAlertController(indexPath:NSIndexPath) {
+    let alert = UIAlertController(title: "Photo Options", message: "Please choose an option", preferredStyle: .Alert)
+    
+    alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+      textField.placeholder = "Add Caption!"
+      textField.secureTextEntry = false
+    }
+    var text:String
+    let textField = alert.textFields![0] as UITextField
+    if textField.text != nil {
+      text = textField.text
+    }
+    let photoAction = UIAlertAction(title: "Post Photo to Facebook with Caption", style: .Destructive) { (UIAlertAction) -> Void in
+      self.saveFilterToCoreData(indexPath)
+    }
+    alert.addAction(photoAction)
+    
+    let saveFilterAction = UIAlertAction(title: "Save Filter without posting on Facebook", style: .Default) { (UIAlertAction) -> Void in
+      self.saveFilterToCoreData(indexPath)
+    }
+    alert.addAction(saveFilterAction)
+    
+    let cancelAction = UIAlertAction(title: "Select another Filter", style: .Cancel) { (UIAlertAction) -> Void in
+      //
+    }
+    alert.addAction(cancelAction)
+    
+    self.presentViewController(alert, animated: true, completion: nil)
+  }
+  
+  func saveFilterToCoreData(indexPath:NSIndexPath) {
+    let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+    
+    let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+    self.thisFeedItem.image = imageData
+    
+    // really make a thumbnail
+    let size = CGSizeApplyAffineTransform(filterImage.size, CGAffineTransformMakeScale(300.0/filterImage.size.width, 300.0/filterImage.size.height))
+    let hasAlpha = false
+    let scale: CGFloat = 0.0 // automatically use scale factor of the main screen
+    UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+    filterImage.drawInRect(CGRect(origin: CGPointZero, size: size))
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
+    self.thisFeedItem.thumbnail = thumbnailData
+    
+    (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+    self.navigationController?.popViewControllerAnimated(true)
+  }
+  
   // MARK: - Caching
   func cacheImage(imageNumber: Int) {
     let fileName = "\(imageNumber)"
@@ -141,22 +192,6 @@ extension FilterViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension FilterViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
-    
-    let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
-    self.thisFeedItem.image = imageData
-    
-    // really make a thumbnail
-    let size = CGSizeApplyAffineTransform(filterImage.size, CGAffineTransformMakeScale(300.0/filterImage.size.width, 300.0/filterImage.size.height))
-    let hasAlpha = false
-    let scale: CGFloat = 0.0 // automatically use scale factor of the main screen
-    UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
-    filterImage.drawInRect(CGRect(origin: CGPointZero, size: size))
-    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-    let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
-    self.thisFeedItem.thumbnail = thumbnailData
-    
-    (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
-    self.navigationController?.popViewControllerAnimated(true)
+    createUIAlertController(indexPath)
   }
 }
