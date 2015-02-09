@@ -146,8 +146,15 @@ extension FeedViewController: UIImagePickerControllerDelegate {
     feedItem.thumbnail = thumbnailData
     feedItem.caption = "test caption"
     
-    feedItem.latitude = locationManager.location.coordinate.latitude
-    feedItem.longitude = locationManager.location.coordinate.longitude
+    if let location = locationManager.location? {
+      feedItem.latitude = location.coordinate.latitude
+      feedItem.longitude = location.coordinate.longitude
+    } else {
+      println("No location available")
+    }
+    
+    let UUID = NSUUID().UUIDString
+    feedItem.uniqueID = UUID
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     
