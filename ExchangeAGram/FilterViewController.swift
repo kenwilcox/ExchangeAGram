@@ -91,18 +91,19 @@ class FilterViewController: UIViewController {
       textField.placeholder = "Add Caption!"
       textField.secureTextEntry = false
     }
-    var text:String
+    
     let textField = alert.textFields![0] as UITextField
-    if textField.text != nil {
-      text = textField.text
-    }
+    
     let photoAction = UIAlertAction(title: "Post Photo to Facebook with Caption", style: .Destructive) { (UIAlertAction) -> Void in
-      self.saveFilterToCoreData(indexPath)
+      self.shareToFacebook(indexPath)
+      let text = textField.text
+      self.saveFilterToCoreData(indexPath, caption: text)
     }
     alert.addAction(photoAction)
     
     let saveFilterAction = UIAlertAction(title: "Save Filter without posting on Facebook", style: .Default) { (UIAlertAction) -> Void in
-      self.saveFilterToCoreData(indexPath)
+      let text = textField.text
+      self.saveFilterToCoreData(indexPath, caption: text)
     }
     alert.addAction(saveFilterAction)
     
@@ -114,7 +115,7 @@ class FilterViewController: UIViewController {
     self.presentViewController(alert, animated: true, completion: nil)
   }
   
-  func saveFilterToCoreData(indexPath:NSIndexPath) {
+  func saveFilterToCoreData(indexPath:NSIndexPath, caption: String) {
     let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
     
     let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
@@ -129,6 +130,7 @@ class FilterViewController: UIViewController {
     let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
     let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
     self.thisFeedItem.thumbnail = thumbnailData
+    self.thisFeedItem.caption = caption
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     self.navigationController?.popViewControllerAnimated(true)
