@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
   }
   
   @IBAction func mapViewButtonTapped(sender: UIButton) {
-    
+    performSegueWithIdentifier("mapSegue", sender: nil)
   }
 }
 

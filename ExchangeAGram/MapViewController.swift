@@ -17,6 +17,16 @@ class MapViewController: UIViewController {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
+    let location = CLLocationCoordinate2D(latitude: 48.868639224587, longitude: 2.37119161036255)
+    let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    let region = MKCoordinateRegion(center: location, span: span)
+    mapView.setRegion(region, animated: true)
+    
+    let annotation = MKPointAnnotation()
+    annotation.setCoordinate(location)
+    annotation.title = "Canal Saint-Martin"
+    annotation.subtitle = "Paris"
+    mapView.addAnnotation(annotation)
   }
   
   override func didReceiveMemoryWarning() {
