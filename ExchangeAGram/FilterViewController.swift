@@ -94,7 +94,7 @@ class FilterViewController: UIViewController {
     
     let textField = alert.textFields![0] as UITextField
     
-    let photoAction = UIAlertAction(title: "Post Photo to Facebook with Caption", style: .Destructive) { (UIAlertAction) -> Void in
+    let photoAction = UIAlertAction(title: "Post Photo to Facebook", style: .Destructive) { (UIAlertAction) -> Void in
       self.shareToFacebook(indexPath)
       let text = textField.text
       self.saveFilterToCoreData(indexPath, caption: text)
