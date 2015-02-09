@@ -12,6 +12,7 @@
 		BE10CEFE1A81F6C40088E59E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CEFD1A81F6C40088E59E /* FeedItem.swift */; };
 		BE10CF011A84FDC50088E59E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE10CF001A84FDC50088E59E /* ProfileViewController.swift */; };
 		BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */; };
+		BEE4A2D81A887237005BA441 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE4A2D71A887237005BA441 /* MapViewController.swift */; };
 		BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEC246E1A7E026200810BD7 /* AppDelegate.swift */; };
 		BEEC24721A7E026200810BD7 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BEEC24701A7E026200810BD7 /* ExchangeAGram.xcdatamodeld */; };
 		BEEC24771A7E026200810BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEC24751A7E026200810BD7 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		BE10CF001A84FDC50088E59E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		BEE4A2D61A86A118005BA441 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		BEE4A2D71A887237005BA441 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BEEC24691A7E026200810BD7 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEC246D1A7E026200810BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEC246E1A7E026200810BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				BEEC24951A7E05BD00810BD7 /* FeedViewController.swift */,
 				BE10CEF91A80A7680088E59E /* FilterViewController.swift */,
 				BE10CF001A84FDC50088E59E /* ProfileViewController.swift */,
+				BEE4A2D71A887237005BA441 /* MapViewController.swift */,
 				BEE4A2D61A86A118005BA441 /* Bridging-Header.h */,
 				BE7FE19C1A7E0A7C00793998 /* FeedCell.swift */,
 				BE10CEFB1A80ACAC0088E59E /* FilterCell.swift */,
@@ -309,6 +312,7 @@
 				BEEC246F1A7E026200810BD7 /* AppDelegate.swift in Sources */,
 				BE7FE19D1A7E0A7C00793998 /* FeedCell.swift in Sources */,
 				BEEC24961A7E05BD00810BD7 /* FeedViewController.swift in Sources */,
+				BEE4A2D81A887237005BA441 /* MapViewController.swift in Sources */,
 				BEEC24721A7E026200810BD7 /* ExchangeAGram.xcdatamodeld in Sources */,
 				BE10CEFE1A81F6C40088E59E /* FeedItem.swift in Sources */,
 				BE10CF011A84FDC50088E59E /* ProfileViewController.swift in Sources */,
