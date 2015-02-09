@@ -21,6 +21,9 @@ class FeedViewController: UIViewController {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
+    let backgroundImage = UIImage(named: "OceanBackground")
+    self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
+    
     locationManager = CLLocationManager()
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
