@@ -104,7 +104,15 @@ extension FeedViewController: UICollectionViewDataSource {
     var cell:FeedCell = collectionView.dequeueReusableCellWithReuseIdentifier("feedCell", forIndexPath: indexPath) as FeedCell
     
     let feedItem = feedArray[indexPath.row] as FeedItem
-    cell.imageView.image = UIImage(data: feedItem.image)
+    
+    if feedItem.filtered == true {
+      let returnedImage = UIImage(data: feedItem.image)!
+      let image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: .Right)!
+      cell.imageView.image = image
+    } else {
+      cell.imageView.image = UIImage(data: feedItem.image)
+    }
+    
     cell.captionLabel.text = feedItem.caption
     
     return cell
@@ -155,6 +163,8 @@ extension FeedViewController: UIImagePickerControllerDelegate {
     
     let UUID = NSUUID().UUIDString
     feedItem.uniqueID = UUID
+    
+    feedItem.filtered = false
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     

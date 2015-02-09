@@ -131,6 +131,7 @@ class FilterViewController: UIViewController {
     let thumbnailData = UIImageJPEGRepresentation(scaledImage, 0.5)
     self.thisFeedItem.thumbnail = thumbnailData
     self.thisFeedItem.caption = caption
+    self.thisFeedItem.filtered = true
     
     (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
     self.navigationController?.popViewControllerAnimated(true)
@@ -170,14 +171,17 @@ class FilterViewController: UIViewController {
   
   func getCachedImage (imageNumber: Int) -> UIImage {
     let path = uniquePath(imageNumber)
+    
     var image:UIImage
     
-    if NSFileManager.defaultManager().fileExistsAtPath(path) {
-      image = UIImage(contentsOfFile: path)!
-    } else {
+    if !NSFileManager.defaultManager().fileExistsAtPath(path) {
       self.cacheImage(imageNumber)
-      image = UIImage(contentsOfFile: path)!
     }
+    
+    var returnedImage = UIImage(contentsOfFile: path)!
+    image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: .Right)!
+    //image = UIImage(contentsOfFile: path)!
+
     return image
   }
 }
