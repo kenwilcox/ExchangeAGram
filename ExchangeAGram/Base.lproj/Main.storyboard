@@ -119,8 +119,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjU-J3-E68">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjU-J3-E68">
                                 <rect key="frame" x="455" y="86" width="129" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="CQm-DP-2O4"/>
+                                    <constraint firstAttribute="height" constant="102" id="Wfc-U9-K1N"/>
+                                </constraints>
                                 <state key="normal" image="MapIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -135,7 +139,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XjU-J3-E68" firstAttribute="trailing" secondItem="hld-3J-4g6" secondAttribute="trailingMargin" id="2SX-PK-hdq"/>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="top" secondItem="hld-3J-4g6" secondAttribute="topMargin" constant="72" id="5Ji-vE-msU"/>
+                            <constraint firstItem="XjU-J3-E68" firstAttribute="top" secondItem="hld-3J-4g6" secondAttribute="topMargin" constant="86" id="ZAk-wm-Lei"/>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="leading" secondItem="hld-3J-4g6" secondAttribute="leadingMargin" id="cCm-Wg-SRb"/>
                             <constraint firstItem="HQe-YS-QQK" firstAttribute="top" secondItem="oa4-f2-Xvf" secondAttribute="bottom" constant="8" id="fQY-vH-rTc"/>
                             <constraint firstItem="HQe-YS-QQK" firstAttribute="leading" secondItem="hld-3J-4g6" secondAttribute="leadingMargin" id="iF2-5X-03A"/>
