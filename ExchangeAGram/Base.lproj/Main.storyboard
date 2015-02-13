@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6wc-g3-DgG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Feed View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FeO-3a-hYs">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FeO-3a-hYs">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XcZ-p0-t5B">
@@ -58,6 +59,15 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FeO-3a-hYs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="7mE-nR-vsR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FeO-3a-hYs" secondAttribute="bottom" id="Btc-aC-d4S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FeO-3a-hYs" secondAttribute="trailing" constant="-16" id="MWg-Aj-aAf"/>
+                            <constraint firstItem="FeO-3a-hYs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="ZYg-gA-ZvZ"/>
+                            <constraint firstItem="FeO-3a-hYs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="eEb-At-hVD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FeO-3a-hYs" secondAttribute="bottom" id="em1-ec-rVJ"/>
+                            <constraint firstItem="FeO-3a-hYs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="n4K-zv-LhA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7sZ-Pj-pq9">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="Hu1-Mc-YWE">
