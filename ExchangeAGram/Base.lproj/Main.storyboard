@@ -109,8 +109,12 @@
                                     <constraint firstAttribute="width" constant="100" id="sss-VL-Mc0"/>
                                 </constraints>
                             </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQe-YS-QQK">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQe-YS-QQK">
                                 <rect key="frame" x="16" y="180" width="210" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="Hxa-4c-Cvz"/>
+                                    <constraint firstAttribute="height" constant="45" id="ngk-b1-B8K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,6 +137,8 @@
                         <constraints>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="top" secondItem="hld-3J-4g6" secondAttribute="topMargin" constant="72" id="5Ji-vE-msU"/>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="leading" secondItem="hld-3J-4g6" secondAttribute="leadingMargin" id="cCm-Wg-SRb"/>
+                            <constraint firstItem="HQe-YS-QQK" firstAttribute="top" secondItem="oa4-f2-Xvf" secondAttribute="bottom" constant="8" id="fQY-vH-rTc"/>
+                            <constraint firstItem="HQe-YS-QQK" firstAttribute="leading" secondItem="hld-3J-4g6" secondAttribute="leadingMargin" id="iF2-5X-03A"/>
                         </constraints>
                     </view>
                     <connections>
