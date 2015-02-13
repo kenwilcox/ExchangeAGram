@@ -132,15 +132,21 @@
                                     <action selector="mapViewButtonTapped:" destination="8DZ-96-RME" eventType="touchUpInside" id="OpS-u4-fsX"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfD-6a-bRx" customClass="FBLoginView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfD-6a-bRx" customClass="FBLoginView">
                                 <rect key="frame" x="176" y="273" width="248" height="54"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="jXp-W7-kWE"/>
+                                    <constraint firstAttribute="width" constant="248" id="y7L-Zl-4kP"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XjU-J3-E68" firstAttribute="trailing" secondItem="hld-3J-4g6" secondAttribute="trailingMargin" id="2SX-PK-hdq"/>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="top" secondItem="hld-3J-4g6" secondAttribute="topMargin" constant="72" id="5Ji-vE-msU"/>
+                            <constraint firstAttribute="centerY" secondItem="jfD-6a-bRx" secondAttribute="centerY" id="BXh-lA-yLv"/>
+                            <constraint firstAttribute="centerX" secondItem="jfD-6a-bRx" secondAttribute="centerX" id="TPe-h2-4fh"/>
                             <constraint firstItem="XjU-J3-E68" firstAttribute="top" secondItem="hld-3J-4g6" secondAttribute="topMargin" constant="86" id="ZAk-wm-Lei"/>
                             <constraint firstItem="oa4-f2-Xvf" firstAttribute="leading" secondItem="hld-3J-4g6" secondAttribute="leadingMargin" id="cCm-Wg-SRb"/>
                             <constraint firstItem="HQe-YS-QQK" firstAttribute="top" secondItem="oa4-f2-Xvf" secondAttribute="bottom" constant="8" id="fQY-vH-rTc"/>
